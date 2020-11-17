@@ -10,6 +10,7 @@
 # the function body.
 
 import sys
+from Tree import Nil
 from Tree import Node
 from Tree import StrLit
 from Tree import Environment
@@ -59,5 +60,5 @@ class Closure(Node):
             env.define(node.getCar(), args.getCar())
             node = node.getCdr()
             args = args.getCdr()
-        return func.eval(env)
 
+        return func.eval(self, env)

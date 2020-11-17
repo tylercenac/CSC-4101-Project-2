@@ -44,7 +44,7 @@ class Cons(Node):
 
     def isPair(self):
         return True
-
+        
 if __name__ == "__main__":
     c = Cons(Ident("Hello"), Ident("World"))
     c.print(0)

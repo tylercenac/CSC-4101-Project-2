@@ -2,6 +2,7 @@
 
 import sys
 from abc import ABC, abstractmethod
+#from Tree import Nil
 
 class Node(ABC):
     # The argument of print(int) is the number of characters to indent.
@@ -72,7 +73,6 @@ class Node(ABC):
 
     def eval(self, env):
         from Tree import Ident
-        
         if isinstance(self, Ident):
             id = Ident(self.getName())
             return id.eval(self, env)

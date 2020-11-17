@@ -13,6 +13,9 @@ class IntLit(Node):
     def isNumber(self):
         return True
 
+    def getVal(self):
+        return self.intVal
+
 if __name__ == "__main__":
     id = IntLit(42)
     id.print(0)

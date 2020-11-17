@@ -61,7 +61,6 @@ class BuiltIn(Node):
     # to report an error.  It should be overridden only in classes
     # BuiltIn and Closure.
     def apply(self, args):
-
         if args == None:
             return None
         
