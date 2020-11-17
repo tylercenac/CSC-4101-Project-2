@@ -45,6 +45,8 @@ class Environment(Node):
     # every list element (every frame) is an association list.
     # Instead of Nil(), we use None to terminate the list.
 
+    errors = []
+
     def __init__(self, e = None):
         self.frame = Nil.getInstance()  # the innermost scope, an assoc list
         self.env = e                    # the enclosing environment
@@ -103,12 +105,12 @@ class Environment(Node):
         # TODO: implement this function
         node = find(id, self.frame)
         if node == None and self.env == None:
-            err = "Error: undefined variable";
-            #getErrorMessages().add(err);
+            err = "Error: undefined variable"
+            errors.append(err)
         elif node == None:
-            assign(id, self.env);
+            assign(id, self.env)
         else:
-            setCar(Cons(id, value));
+            setCar(Cons(id, value))
         
 
 if __name__ == "__main__":

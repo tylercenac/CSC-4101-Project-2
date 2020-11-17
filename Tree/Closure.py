@@ -50,4 +50,14 @@ class Closure(Node):
     # to report an error.  It should be overridden only in classes
     # BuiltIn and Closure.
     def apply(self, args):
-        return StrLit("Error: Closure.apply not yet implemented")
+        env = self.getEnv()
+        func = self.getFun()
+        node = func.getCar()
+        func = func.getCdr().getCar()
+
+        while (args != None and not(args.getCar().isNull())):
+            env.define(node.getCar(), args.getCar())
+            node = node.getCdr()
+            args = args.getCdr()
+        return func.eval(env)
+
